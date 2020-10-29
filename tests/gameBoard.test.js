@@ -1,3 +1,9 @@
+/*
+ * Since this code is one of the first I did in JS module and was still
+ * learning about how to organize my code, I had to
+ * adapt my testing and create some scenarios
+ */
+
 const gameBoard = require('./gameBoard')
 
 const resetHTML = (string) => document.body.innerHTML = string;
