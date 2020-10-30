@@ -196,7 +196,6 @@ const displayController = (() => {
     gameBoard.displayPlayers(player1, player2);
     const cell = gameBoard.getCells();
 
-
     for (let i = 0; i < 9; i += 1) {
       // eslint-disable-next-line no-loop-func
       cell[i].addEventListener('click', () => {

@@ -24,6 +24,19 @@ Check the live version [here](https://rawcdn.githack.com/HeflerDev/JavasCript-Ti
 
 ![Account](/resources/screenshot.png)
 
+## Testing
+
+The project uses the [Jest](https://jestjs.io/) module to run the tests.
+To run the testing:
+
+- If didn't yet, install the node modules through:
+`` npm install ``
+
+- If everything is set, run:
+`` npm run test ``
+
+It should return all tests Green.
+
 ## Future Features
 * Play against the computer.
 
