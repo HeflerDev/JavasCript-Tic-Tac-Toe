@@ -12,7 +12,7 @@ const gameBoard = (() => {
   ];
 
   const renderCell = () => {
-  const board = document.getElementById('board');
+    const board = document.getElementById('board');
     for (let i = 0; i < 9; i += 1) {
       const cell = document.createElement('div');
       cell.classList.add('cell', 'col-4');

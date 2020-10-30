@@ -3,7 +3,6 @@ const gameBoard = require('./gameBoard');
 const displayController = () => {
   let message;
   let countMarks = 0;
-  let currentPlayer;
   let messageContainer;
   let newButton;
   let resetButton;
@@ -67,14 +66,6 @@ const displayController = () => {
   };
 
 
-  const getPlayersData = () => {
-    const pname1 = document.getElementById('player1').value;
-    const pname2 = document.getElementById('player2').value;
-    const player1 = Player(pname1, 'X');
-    const player2 = Player(pname2, 'O');
-    return [player1, player2];
-  };
-
   const playerMove = () => {
     const cell = gameBoard.getCells();
 
@@ -101,8 +92,8 @@ const displayController = () => {
   };
 
   return {
-    resetBoard, gameOverMessage, checkWins, checkTie, getPlayersData, submitBtn, playerMove,
+    resetBoard, gameOverMessage, checkWins, checkTie, submitBtn, playerMove,
   };
 };
 
-module.exports = displayController() ;
+module.exports = displayController();
