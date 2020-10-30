@@ -52,12 +52,6 @@ const displayController = () => {
         cell[elem1].classList.add('win');
         cell[elem2].classList.add('win');
         cell[elem3].classList.add('win');
-
-        gameOverMessage(`${currentPlayer.name} wins`);
-        resetGame();
-        resetBoard();
-        currentPlayer.score += 1;
-        countMarks = 0;
       }
     });
   };
@@ -82,30 +76,19 @@ const displayController = () => {
   };
 
   const playerMove = () => {
-    const players = getPlayersData();
-    const player1 = players[0];
-    const player2 = players[1];
-    gameBoard.displayPlayers(player1, player2);
     const cell = gameBoard.getCells();
-
 
     for (let i = 0; i < 9; i += 1) {
       // eslint-disable-next-line no-loop-func
       cell[i].addEventListener('click', () => {
         if (cell[i].textContent === '') {
           if (countMarks % 2 === 0) {
-            cell[i].textContent = player1.symbol;
-            currentPlayer = player1;
+            cell[i].textContent = 'X';
           } else {
-            cell[i].textContent = player2.symbol;
-            currentPlayer = player2;
+            cell[i].textContent = 'O';
           }
           countMarks += 1;
         }
-        gameBoard.updateStyle(currentPlayer, player1);
-        displayController.checkWins(cell);
-        gameBoard.updateScore(currentPlayer, player1);
-        displayController.checkTie(countMarks);
       });
     }
   };

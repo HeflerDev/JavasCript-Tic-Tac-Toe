@@ -3,6 +3,41 @@ const gameBoard = require('./gameBoard');
 
 const setScenario = (string) => document.body.innerHTML = string;
 
+describe('when player play', () => {
+    beforeEach(() => {
+        setScenario('<div id="board"></div>');
+        gameBoard.renderCell();
+    });
+    test('add player symbol', () => {
+        displayController.playerMove();
+        let paramOne = document.querySelector('#cell-0');
+        let paramTwo = document.querySelector('#cell-1');
+        expect(paramOne.textContent).toBe('');
+        paramOne.click();
+        expect(paramOne.textContent).toBe('X');
+        paramTwo.click();
+        expect(paramTwo.textContent).toBe('O');
+    });
+    test('player win when combo', () => {
+       const cellOne = document.querySelector('#cell-0')
+        cellOne.textContent = 'X';
+       const cellTwo = document.querySelector('#cell-1')
+            cellTwo.textContent = 'X';
+       const cellThree = document.querySelector('#cell-2')
+            cellThree.textContent = 'X';
+
+        expect(cellOne.className).not.toMatch(/win/);
+        expect(cellTwo.className).not.toMatch(/win/);
+        expect(cellThree.className).not.toMatch(/win/);
+
+        displayController.checkWins(document.querySelectorAll('.cell'));
+
+        expect(cellOne.className).toMatch(/win/);
+        expect(cellTwo.className).toMatch(/win/);
+        expect(cellThree.className).toMatch(/win/);
+    });
+});
+
 describe('when game ends', () => {
     beforeEach(() => {
         setScenario(
